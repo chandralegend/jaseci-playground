@@ -1,0 +1,14 @@
+2023-07-17 15:37:20,060 - ERROR - start: Skipping RedisService due to initialization failure!
+ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2023-07-17 15:37:20,074 - ERROR - jac_code_to_ast: Parse errors encountered - <jaseci.jac.ir.ast_builder.JacAstBuilder object at 0x7f25f171e650>
+2023-07-17 15:37:20,075 - ERROR - compile_jac: main.jac: Invalid syntax in Jac code!
+2023-07-17 15:37:20,075 - ERROR - compile_jac: main.jac: line 1:0 - unparsed:main.jac:0:0: - mismatched input 'std' expecting {<EOF>, 'version', 'type', 'graph', 'node', 'import', 'edge', 'walker', 'async', 'test', 'global'}
+2023-07-17 15:37:20,075 - ERROR - register: main.jac: Code not registered
+2023-07-17 15:37:43,085 - ERROR - start: Skipping RedisService due to initialization failure!
+ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2023-07-17 15:37:43,155 - ERROR - spawn_architype: main.jac: Unable to spawn walker architype init!
+2023-07-17 15:37:43,155 - ERROR - run_architype: main.jac: Unable to spawn architype ['init', 'walker']!
+2023-07-17 15:37:55,233 - ERROR - start: Skipping RedisService due to initialization failure!
+ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2023-07-17 16:46:39,927 - ERROR - start: Skipping RedisService due to initialization failure!
+ConnectionError: Error 111 connecting to localhost:6379. Connection refused.

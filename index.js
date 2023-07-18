@@ -88,16 +88,9 @@ const executeCommandBuilder = (code, lang, path) => {
 app.post("/execute", async (req, res) => {
 	try {
 		const code = req.body.code;
-		const lang = req.body.lang;
+		const lang = 'jaseci';
 
-		let image;
-		switch (lang) {
-			case "jaseci":
-				image = "jaseci/jaseci";
-			default:
-				image = "node";
-				break;
-		}
+		let image = "jaseci/jaseci";
 
 		const session = `${root}/${Date.now().toPrecision(21)}`;
 		if (!fs.existsSync(`./${session}`)) {
@@ -105,16 +98,17 @@ app.post("/execute", async (req, res) => {
 		}
 
 		let cmd = executeCommandBuilder(code, lang, `./${session}`);
+	
 		let result = await runInDocker(docker, image, ["/bin/sh", "-c", cmd], {
 			HostConfig: {
 				Binds: [`${path.join(__dirname + "/" + session)}:/usr/app/src`],
 			},
 			WorkingDir: "/usr/app/src",
 		});
-
 		rmDir(`./${session}`);
 
 		res.json(result);
+
 	} catch (err) {
 		console.log("ERROR", err);
 		res.json({

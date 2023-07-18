@@ -17,16 +17,10 @@ import "codemirror/addon/dialog/dialog.css";
 
 const supportedLanguages = [
 	{
-		name: "JavaScript",
-		cmMode: "javascript",
-		lang: "node",
-		template: 'console.log("Hello, World")',
-	},
-	{
-		name: "Jaseci",
+		name: "v1.4.1.5",
 		cmMode: "jaseci",
 		lang: "jaseci",
-		template: "std.out('Hello, World')",
+		template: "walker init {\n\tstd.out('Hello World!');\n}",
 	},
 ];
 
@@ -98,15 +92,10 @@ const useFileSystem = (id) => {
 		currentFileIndex: -1,
 		files: [
 			{
-				name: "demo-01.js",
-				content: 'console.log("Hey you!")',
-				language: "node",
+				name: "hello-world.jac",
+				content: 'walker init {\n\tstd.out("Hello World!");\n}',
+				language: "jaseci",
 			},
-      {
-        name: "demo-02.jac",
-        content: 'std.out("Hey you!")',
-        language: "jaseci",
-      }
 		],
 	});
 
@@ -359,12 +348,19 @@ const App = () => {
 	return (
 		<>
 			<div className='header'>
-				<button onClick={FileManager?.current.new}>New File</button>
+				<img
+					src='https://www.jaseci.org/wp-content/uploads/2022/02/jaseki-logo-inverted-rgb.svg'
+					alt='logo'
+					className='logo'
+				/>
 				<div className='spacer'></div>
+				<button onClick={FileManager?.current.new}>New File</button>
+
+				<div className='flex-spacer'></div>
 				<div className='language-selector'>
-					language:&nbsp;
 					<select
 						id='language-select'
+						className="language-select"
 						ref={languageRef}
 						onChange={languageChangeHandler}
 						value={FileManager.current.language}>
@@ -375,7 +371,7 @@ const App = () => {
 						))}
 					</select>
 				</div>
-				<div className='flex-spacer'></div>
+				<div className='spacer'></div>
 				<button className='primary' onClick={executeCode.bind(null, codeEditor?.current)}>
 					Execute
 				</button>
