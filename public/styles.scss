@@ -131,10 +131,10 @@ button {
 }
 
 .language-selector {
-  // center the language selector
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	// center the language selector
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #editor-container {
@@ -148,7 +148,7 @@ button {
 	font-family: $font-family;
 	font-size: $font-size;
 	margin: 0;
-	padding: 0;
+	padding: 10px;
 	display: flex;
 	flex-direction: row;
 }
@@ -190,6 +190,11 @@ button {
 	flex: 1;
 	padding: 5px 0;
 	overflow: auto;
+}
+
+#output .output-section code {
+	overflow: auto;
+	padding: 5px 0;
 }
 
 #output .status-section {

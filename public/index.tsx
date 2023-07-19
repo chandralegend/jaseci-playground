@@ -5,12 +5,8 @@ import "./styles.scss";
 import CodeMirror from "codemirror";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material-darker.css";
-import "codemirror/mode/clike/clike.js";
-import "codemirror/mode/javascript/javascript.js";
 import "codemirror/mode/python/python.js";
-import "codemirror/mode/go/go.js";
-import "codemirror/mode/rust/rust.js";
-import "codemirror/keymap/vim.js";
+// import "codemirror/keymap/vim.js";
 import "codemirror/keymap/sublime.js";
 import "codemirror/addon/dialog/dialog.js";
 import "codemirror/addon/dialog/dialog.css";
@@ -18,7 +14,7 @@ import "codemirror/addon/dialog/dialog.css";
 const supportedLanguages = [
 	{
 		name: "v1.4.1.5",
-		cmMode: "jaseci",
+		cmMode: "python",
 		lang: "jaseci",
 		template: "walker init {\n\tstd.out('Hello World!');\n}",
 	},
@@ -63,18 +59,18 @@ const useCodeEditor = (ref, keyMap = {}, options = {}, commands = []) => {
 	const cm = React.useRef();
 
 	React.useEffect(() => {
-		const Vim = (CodeMirror as any).Vim;
-		// Config Vim key binding
-		Vim.map("jk", "<Esc>", "insert");
+		// const Vim = (CodeMirror as any).Vim;
+		// // Config Vim key binding
+		// Vim.map("jk", "<Esc>", "insert");
 
-		for (let cmd of commands) {
-			const { command, short, fn } = cmd;
-			Vim.defineEx(command, short, fn);
-		}
+		// for (let cmd of commands) {
+		// 	const { command, short, fn } = cmd;
+		// 	Vim.defineEx(command, short, fn);
+		// }
 
 		cm?.current = CodeMirror(ref?.current, {
 			lineNumbers: true,
-			keyMap: "vim",
+			keyMap: "default",
 			theme: "material-darker",
 			showCursorWhenSelecting: true,
 			...options,
@@ -360,7 +356,7 @@ const App = () => {
 				<div className='language-selector'>
 					<select
 						id='language-select'
-						className="language-select"
+						className='language-select'
 						ref={languageRef}
 						onChange={languageChangeHandler}
 						value={FileManager.current.language}>
