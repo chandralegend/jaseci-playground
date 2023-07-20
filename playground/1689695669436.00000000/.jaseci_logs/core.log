@@ -1,2 +1,0 @@
-2023-07-18 15:54:32,743 - ERROR - start: Skipping RedisService due to initialization failure!
-ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
