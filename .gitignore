@@ -5,3 +5,4 @@ main.jac
 .cache
 dist
 playground/*
+.jaseci_logs

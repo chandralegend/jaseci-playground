@@ -71,10 +71,10 @@ const runInDocker = (docker, image, command, options) =>
 const executeCommandBuilder = (code, lang, path) => {
 	let cmd = "";
 	switch (lang) {
-		case "node":
-			fs.writeFileSync(path + "/main.js", code);
-			cmd = "node main.js";
-			break;
+		// case "node":
+		// 	fs.writeFileSync(path + "/main.js", code);
+		// 	cmd = "node main.js";
+		// 	break;
 		case "jaseci":
 			fs.writeFileSync(path + "/main.jac", code);
 			cmd = "jsctl -m jac run main.jac";

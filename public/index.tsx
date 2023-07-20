@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./styles.scss";
+import examples from "./examples/examples.json";
 
 import CodeMirror from "codemirror";
 import "codemirror/lib/codemirror.css";
@@ -86,13 +87,7 @@ const useFileSystem = (id) => {
 	const [language, setLanguage] = useLocalStorage("__cpp-pad-saved-language", "cpp");
 	const [fileSystem, setFileSystem] = useLocalStorage(id, {
 		currentFileIndex: -1,
-		files: [
-			{
-				name: "hello-world.jac",
-				content: 'walker init {\n\tstd.out("Hello World!");\n}',
-				language: "jaseci",
-			},
-		],
+		files: examples,
 	});
 
 	const all = () => {
